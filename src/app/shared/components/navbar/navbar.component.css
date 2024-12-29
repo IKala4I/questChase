@@ -1,0 +1,5 @@
+.navbar {
+    @media (min-width:992px) {
+        border-bottom: 2px solid white;
+    }
+}

@@ -12,7 +12,5 @@
   "insertPragma": false,
   "requirePragma": false,
   "quoteProps": "as-needed",
-  "trailingComma": "none",
-  "eslintIntegration": true,
-  "parser": "babel"
+  "trailingComma": "none"
 }

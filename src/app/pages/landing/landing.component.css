@@ -1,0 +1,9 @@
+.hero {
+    width: 75%;
+    height: 512px;
+    background: url('/assets/background.jpeg') center/cover no-repeat;
+}
+
+.features mat-icon {
+    color: #007bff;
+}

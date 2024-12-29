@@ -1,14 +1,11 @@
 import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+
+import { LandingComponent } from "src/app/pages/landing/landing.component";
 
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    imports: [RouterOutlet],
+    imports: [LandingComponent],
     styleUrl: "./app.component.css"
 })
-export class AppComponent {
-    test = {
-        wow: "wow"
-    };
-}
+export class AppComponent {}

@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0 auto !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    max-width: 1440px;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}

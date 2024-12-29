@@ -1,1 +1,72 @@
-<p>landing works!</p>
+<header>
+    <app-navbar (launchedApp)="onLaunchApp($event)"/>
+</header>
+
+<main class="mt-5 pb-5">
+    <section class="hero text-center bg-primary mx-auto d-flex align-items-center">
+        <div class="container px-3">
+            <h1>Embark on a new journey with Web3 Quest</h1>
+            <p>
+                Explore the world of the Metaverse and earn rewards along the way. Whether you're a creator or an
+                adventurer, there's something for everyone.
+            </p>
+            <button class="btn btn-primary" (click)="openLaunchForm()">Launch App</button>
+        </div>
+    </section>
+
+    <section class="features my-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Features</h2>
+            <div class="d-flex flex-column flex-lg-row justify-content-between">
+                <div class="col-lg-3 text-center">
+                    <mat-icon>explore</mat-icon>
+                    <h4>Discover Adventures</h4>
+                    <p>Embark on epic quests and explore new worlds.</p>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <mat-icon>create</mat-icon>
+                    <h4>Create Adventures</h4>
+                    <p>Engage your audience and earn rewards.</p>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <mat-icon>verified</mat-icon>
+                    <h4>Collect NFTs</h4>
+                    <p>Showcase your collection and trade with others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="text-center mb-4">Join Our Community</h2>
+            <div class="d-flex flex-column flex-lg-row justify-content-between gap-2">
+                <div class="col-lg-3 text-center card bg-dark shadow">
+                    <div class="card-body text-light">
+                        <h4>20000+</h4>
+                        <span class="text-secondary">Adventures</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-center card bg-dark shadow">
+                    <div class="card-body text-light">
+                        <h4>3000+</h4>
+                        <span class="text-secondary">Creators</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-center card bg-dark shadow">
+                    <div class="card-body text-light">
+                        <h4>100+</h4>
+                        <span class="text-secondary">Guilds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta text-center mt-5">
+        <div class="container">
+            <h2>Ready to start your adventure?</h2>
+            <button class="btn btn-primary" (click)="openLaunchForm()">Launch App</button>
+        </div>
+    </section>
+</main>
