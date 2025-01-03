@@ -1,4 +1,9 @@
 export interface ILaunchAppForm {
-    mode: number;
+    mode: AppModes;
     remember: boolean;
+}
+
+export enum AppModes {
+    Ordinary,
+    Crypto
 }

@@ -4,6 +4,7 @@ import { MatRadioButton, MatRadioGroup } from "@angular/material/radio";
 import { MatCheckbox } from "@angular/material/checkbox";
 import { MatButton } from "@angular/material/button";
 import { FormsModule } from "@angular/forms";
+import { AppModes } from "src/app/shared/interfaces/launch-app-form.interface";
 
 @Component({
     selector: "app-launch-app-form",
@@ -21,7 +22,7 @@ import { FormsModule } from "@angular/forms";
     styleUrl: "./launch-app-form.component.css"
 })
 export class LaunchAppFormComponent {
-    mode: number = 1;
+    mode: AppModes = AppModes.Ordinary;
     remember: boolean = false;
 
     constructor(private dialogRef: MatDialogRef<LaunchAppFormComponent>) {}

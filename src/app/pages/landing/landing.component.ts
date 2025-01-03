@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
 import { MatIcon } from "@angular/material/icon";
 import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 
 import { NavbarComponent } from "src/app/shared/components/navbar/navbar.component";
 import { LaunchAppFormComponent } from "src/app/shared/components/navbar/launch-app-form/launch-app-form.component";
-import { ILaunchAppForm } from "src/app/shared/interfaces/launch-app-form.interface";
+import { AppModes, ILaunchAppForm } from "src/app/shared/interfaces/launch-app-form.interface";
 
 @Component({
     selector: "app-landing",
@@ -13,7 +14,10 @@ import { ILaunchAppForm } from "src/app/shared/interfaces/launch-app-form.interf
     styleUrl: "./landing.component.css"
 })
 export class LandingComponent {
-    constructor(private dialog: MatDialog) {}
+    constructor(
+        private dialog: MatDialog,
+        private router: Router
+    ) {}
 
     openLaunchForm(): void {
         const dialogRef = this.dialog.open(LaunchAppFormComponent);
@@ -29,5 +33,12 @@ export class LandingComponent {
         this.launchApp(event);
     }
 
-    private launchApp(launchAppForm: ILaunchAppForm): void {}
+    private launchApp(launchAppForm: ILaunchAppForm): void {
+        console.log(launchAppForm);
+        if (launchAppForm.mode === AppModes.Ordinary) {
+            this.router.navigate(["/ordinary"]);
+        } else {
+            this.router.navigate(["/crypto"]);
+        }
+    }
 }

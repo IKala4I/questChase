@@ -1,0 +1,51 @@
+<main class="bg-dark text-light">
+    <!-- Hero Section -->
+    <section class="text-center py-5">
+        <h1>Discover the world's best experiences</h1>
+        <div class="d-flex justify-content-center mt-4">
+            <input type="text" class="form-control w-50" placeholder="Search for quests">
+            <button mat-raised-button color="primary" class="ms-2">Explore</button>
+        </div>
+    </section>
+
+    <!-- Featured Quests -->
+    <section class="py-5">
+        <h2 class="text-center mb-4">Featured Quests</h2>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+            <mat-card *ngFor="let quest of [1, 2, 3, 4]" class="bg-dark text-light" style="width: 18rem;">
+                <img mat-card-image src="assets/image-placeholder.png" alt="Quest Image">
+                <mat-card-content>
+                    <h3>Quest Title</h3>
+                    <p>$25 | 5 hours</p>
+                    <p>Earned by 500+ people</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <h2 class="text-center mb-4">Testimonials</h2>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+            <mat-card *ngFor="let testimonial of [1, 2, 3]" class="bg-dark text-light" style="width: 18rem;">
+                <mat-card-content>
+                    <p>"I learned so much from this quest. It was a great way to spend my weekend!"</p>
+                    <footer>— Emily, 30</footer>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="py-5">
+        <h2 class="text-center mb-4">Latest News and Updates</h2>
+        <div class="d-flex flex-column align-items-center gap-3">
+            <mat-card *ngFor="let news of [1, 2, 3]" class="bg-dark text-light w-75">
+                <mat-card-content>
+                    <h3>How to Write a Bestselling Novel</h3>
+                    <p>Author: John Doe</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+</main>
