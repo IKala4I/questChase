@@ -1,0 +1,63 @@
+<div @fadeAnimation class="profile-container">
+    <!-- Profile Header -->
+    <section class="profile-header d-flex flex-column flex-sm-row align-items-center justify-content-between gap-4">
+        <div class="d-flex gap-4 align-items-center">
+            <img [src]="user.avatar" alt="Avatar" class="avatar rounded-circle" width="100" height="100">
+            <div class="d-flex flex-column align-items-center gap-1">
+                <h2 class="m-0 p-0">{{ user.name }}</h2>
+                <p class="text-secondary m-0 p-0 align-self-start">{{ user.username }}</p>
+            </div>
+        </div>
+        <div class="ml-auto d-flex gap-2">
+            <button mat-raised-button color="primary">Edit Profile</button>
+            <button mat-stroked-button color="accent">Settings</button>
+        </div>
+    </section>
+
+    <!-- Completed Quests -->
+    <section class="completed-quests mt-5">
+        <h3>Completed Quests</h3>
+        <div class="quests-grid">
+            <mat-card *ngFor="let quest of completedQuests" class="bg-dark text-light">
+                <img mat-card-image [src]="quest.image" alt="{{ quest.title }}">
+                <mat-card-content class="mt-1">
+                    <h4>{{ quest.title }}</h4>
+                    <p>{{ quest.description }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary mt-5">
+        <h3>Summary</h3>
+        <table class="summary-table">
+            <tr>
+                <td>Total Points:</td>
+                <td class="text-end">{{ summary.totalPoints }}</td>
+            </tr>
+            <tr>
+                <td>Total Rewards:</td>
+                <td class="text-end">{{ summary.totalRewards }}</td>
+            </tr>
+            <tr>
+                <td>Total Quests:</td>
+                <td class="text-end">{{ summary.totalQuests }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements mt-5">
+        <h3>Achievements</h3>
+        <div class="achievements-grid">
+            <mat-card *ngFor="let achievement of achievements" class="bg-dark text-light p-2">
+                <mat-icon>{{ achievement.icon }}</mat-icon>
+                <mat-card-content>
+                    <h4>{{ achievement.title }}</h4>
+                    <p>{{ achievement.description }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+</div>

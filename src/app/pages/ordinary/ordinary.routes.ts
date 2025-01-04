@@ -15,6 +15,11 @@ export const ordinaryRoutes: Routes = [
             {
                 path: "home",
                 loadComponent: () => import("./home/home.component").then(m => m.HomeComponent)
+            },
+            {
+                path: "profile",
+                loadComponent: () =>
+                    import("src/app/shared/components/ordinary/profile/profile.component").then(m => m.ProfileComponent)
             }
         ]
     }

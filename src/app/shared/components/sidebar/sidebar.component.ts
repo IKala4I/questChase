@@ -2,15 +2,17 @@ import { Component, Input } from "@angular/core";
 import { NgForOf } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { MatIcon } from "@angular/material/icon";
+import { MatIconButton } from "@angular/material/button";
 
 @Component({
     selector: "app-sidebar",
-    imports: [NgForOf, RouterLink, MatIcon],
+    imports: [NgForOf, RouterLink, MatIcon, MatIconButton],
     templateUrl: "./sidebar.component.html",
     styleUrl: "./sidebar.component.css"
 })
 export class SidebarComponent {
     @Input() mode: "ordinary" | "crypto" = "ordinary";
+    isMenuOpen: boolean = false;
 
     get menuItems() {
         return this.mode === "ordinary"
@@ -28,5 +30,9 @@ export class SidebarComponent {
                   { icon: "person", label: "Profile", link: "/crypto/profile" },
                   { icon: "help", label: "Help", link: "/crypto/help" }
               ];
+    }
+
+    toggleMenu(): void {
+        this.isMenuOpen = !this.isMenuOpen;
     }
 }

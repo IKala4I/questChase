@@ -1,11 +1,35 @@
+/* Container styling */
+.sidebar-container {
+    position: relative;
+    height: 100%;
+}
+
+/* Toggle button for mobile */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+/* Sidebar styling */
 .sidebar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     height: 100vh;
     width: 250px;
     background-color: #121212;
     color: #fff;
     padding: 20px 10px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    transform: translateX(0);
 }
 
 .sidebar-item {
@@ -24,5 +48,24 @@
 .sidebar-item a:hover {
     background-color: #1e1e1e;
     border-radius: 8px;
-    font-weight: bold;
+    padding: 5px;
+}
+
+/* Desktop view: sidebar is always visible */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .sidebar {
+        transform: translateX(0);
+        position: sticky;
+    }
+}
+
+/* Mobile view: toggle button visible, sidebar hidden initially */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
 }

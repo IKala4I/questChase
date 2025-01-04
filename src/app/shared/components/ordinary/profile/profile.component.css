@@ -1,0 +1,42 @@
+.profile-container {
+    padding: 20px;
+    color: #fff;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.quests-grid,
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.summary-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.summary-table td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+mat-card {
+    background: #222;
+    color: #fff;
+}
+
+mat-card mat-icon {
+    margin-bottom: 10px;
+}
