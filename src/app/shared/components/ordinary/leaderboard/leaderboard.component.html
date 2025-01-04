@@ -1,0 +1,41 @@
+<div class="leaderboard-container">
+    <h2>Leaderboard</h2>
+
+    <!-- Tabs -->
+    <mat-tab-group [(selectedIndex)]="activeTabIndex" class="tabs">
+        <mat-tab label="Daily"></mat-tab>
+        <mat-tab label="Weekly"></mat-tab>
+        <mat-tab label="Monthly"></mat-tab>
+        <mat-tab label="All-time"></mat-tab>
+    </mat-tab-group>
+
+    <!-- Table -->
+    <table mat-table [dataSource]="activeData" class="mat-elevation-z8">
+        <!-- Rank Column -->
+        <ng-container matColumnDef="rank">
+            <th mat-header-cell *matHeaderCellDef> Rank </th>
+            <td mat-cell *matCellDef="let element"> {{ element.rank }} </td>
+        </ng-container>
+
+        <!-- User Column -->
+        <ng-container matColumnDef="user">
+            <th mat-header-cell *matHeaderCellDef> User </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="user-cell">
+                    <img [src]="element.avatar" alt="Avatar" class="avatar" />
+                    <span>{{ element.username }}</span>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Completed Quests Column -->
+        <ng-container matColumnDef="completedQuests">
+            <th mat-header-cell *matHeaderCellDef> Completed Quests </th>
+            <td mat-cell *matCellDef="let element"> {{ element.completedQuests }} </td>
+        </ng-container>
+
+        <!-- Table Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -20,6 +20,13 @@ export const ordinaryRoutes: Routes = [
                 path: "profile",
                 loadComponent: () =>
                     import("src/app/shared/components/ordinary/profile/profile.component").then(m => m.ProfileComponent)
+            },
+            {
+                path: "leaderboard",
+                loadComponent: () =>
+                    import("src/app/shared/components/ordinary/leaderboard/leaderboard.component").then(
+                        m => m.LeaderboardComponent
+                    )
             }
         ]
     }

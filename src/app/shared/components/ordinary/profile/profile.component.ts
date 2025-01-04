@@ -2,20 +2,13 @@ import { Component } from "@angular/core";
 import { MatButton } from "@angular/material/button";
 import { MatCard, MatCardContent, MatCardImage } from "@angular/material/card";
 import { MatIcon } from "@angular/material/icon";
-import { animate, style, transition, trigger } from "@angular/animations";
 import { NgForOf } from "@angular/common";
 
 @Component({
     selector: "app-profile",
     imports: [MatButton, MatCard, MatCardImage, MatCardContent, MatIcon, NgForOf],
     templateUrl: "./profile.component.html",
-    styleUrl: "./profile.component.css",
-    animations: [
-        trigger("fadeAnimation", [
-            transition(":enter", [style({ opacity: 0 }), animate("300ms", style({ opacity: 1 }))]),
-            transition(":leave", [animate("300ms", style({ opacity: 0 }))])
-        ])
-    ]
+    styleUrl: "./profile.component.css"
 })
 export class ProfileComponent {
     user = {
