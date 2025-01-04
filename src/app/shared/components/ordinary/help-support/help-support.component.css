@@ -1,0 +1,32 @@
+.help-support-container {
+    padding: 20px;
+    color: #fff;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.search-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.mat-accordion {
+    background-color: #121212;
+    border-radius: 8px;
+}
+
+.mat-expansion-panel-header {
+    color: #fff;
+}
+
+.mat-expansion-panel {
+    margin-bottom: 10px;
+}
+
+.support-button {
+    margin-top: 20px;
+    width: 100%;
+}

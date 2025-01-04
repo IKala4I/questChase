@@ -1,0 +1,32 @@
+<div class="help-support-container">
+    <h2>Help & Support</h2>
+    <p class="subtitle">We are here to help you with any questions or issues you may have</p>
+
+    <mat-tab-group>
+        <mat-tab label="FAQ">
+            <mat-form-field class="search-field mt-3" appearance="outline">
+                <mat-label>Search our help center</mat-label>
+                <input matInput type="text" placeholder="Type your query...">
+            </mat-form-field>
+
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let item of faq">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>{{ item.question }}</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>{{ item.answer }}</p>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-tab>
+
+        <mat-tab label="How-to guides">
+            <p>Coming soon...</p>
+        </mat-tab>
+
+        <mat-tab label="Contact support">
+            <p>Coming soon...</p>
+        </mat-tab>
+    </mat-tab-group>
+
+    <button mat-stroked-button color="primary" class="support-button">Submit a support ticket</button>
+</div>

@@ -21,7 +21,7 @@ export class SidebarComponent {
                   { icon: "explore", label: "Quests", link: "/ordinary/quests" },
                   { icon: "leaderboard", label: "Leaderboard", link: "/ordinary/leaderboard" },
                   { icon: "person", label: "Profile", link: "/ordinary/profile" },
-                  { icon: "help", label: "Help", link: "/ordinary/help" }
+                  { icon: "help", label: "Help", link: "/ordinary/help-support" }
               ]
             : [
                   { icon: "home", label: "Dashboard", link: "/crypto/dashboard" },

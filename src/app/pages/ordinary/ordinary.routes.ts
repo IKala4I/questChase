@@ -27,6 +27,13 @@ export const ordinaryRoutes: Routes = [
                     import("src/app/shared/components/ordinary/leaderboard/leaderboard.component").then(
                         m => m.LeaderboardComponent
                     )
+            },
+            {
+                path: "help-support",
+                loadComponent: () =>
+                    import("src/app/shared/components/ordinary/help-support/help-support.component").then(
+                        m => m.HelpSupportComponent
+                    )
             }
         ]
     }
