@@ -1,0 +1,56 @@
+<div class="quests-page-container">
+    <h2>Explore</h2>
+
+    <mat-form-field class="search-field" appearance="outline">
+        <mat-label>Search quests</mat-label>
+        <input matInput type="text" placeholder="Type your query...">
+    </mat-form-field>
+
+    <div class="filters">
+        <mat-form-field appearance="outline">
+            <mat-label>Difficulty</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let difficulty of difficulties" [value]="difficulty">
+                    {{ difficulty }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Type</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let type of types" [value]="type">
+                    {{ type }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Reward Type</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let reward of rewardTypes" [value]="reward">
+                    {{ reward }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Field</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let field of fields" [value]="field">
+                    {{ field }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="quests-grid">
+        <mat-card *ngFor="let quest of quests" class="quest-card">
+            <img mat-card-image [src]="quest.image" alt="{{ quest.title }}">
+            <mat-card-content class="mt-1">
+                <h3>{{ quest.title }}</h3>
+                <p>{{ quest.quests }} quests</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
