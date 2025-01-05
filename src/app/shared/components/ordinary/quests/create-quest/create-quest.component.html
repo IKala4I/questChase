@@ -1,0 +1,62 @@
+<div class="create-quest-container p-4">
+    <h2>Create Quest</h2>
+    <form [formGroup]="createQuestForm" (ngSubmit)="onSubmit()">
+        <!-- Title -->
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Example: Buy 2 NFTs and Hold for 30 days">
+            <mat-error *ngIf="createQuestForm.get('title')?.invalid && createQuestForm.get('title')?.touched">
+                Title is required and must be at least 5 characters.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Description</mat-label>
+            <textarea
+                matInput
+                rows="4"
+                formControlName="description"
+                placeholder="Example: Purchase 2 NFTs from the collection and hold for 30 days to earn this NFT."
+            ></textarea>
+            <mat-error *ngIf="createQuestForm.get('description')?.invalid && createQuestForm.get('description')?.touched">
+                Description is required and must be at least 10 characters.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Requirement -->
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Requirement</mat-label>
+            <input matInput formControlName="requirement" placeholder="Example: Buy & Hold NFTs">
+            <mat-error *ngIf="createQuestForm.get('requirement')?.invalid && createQuestForm.get('requirement')?.touched">
+                Requirement is required.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Reward -->
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Reward</mat-label>
+            <input matInput formControlName="reward" placeholder="Example: 1 NFT">
+            <mat-error *ngIf="createQuestForm.get('reward')?.invalid && createQuestForm.get('reward')?.touched">
+                Reward is required.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Time Limit (Datepicker) -->
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="endDate" placeholder="Pick a date">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="createQuestForm.get('endDate')?.invalid && createQuestForm.get('endDate')?.touched">
+                Please select a valid end date.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-end gap-2">
+            <button mat-button type="button">Preview</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!createQuestForm.valid">Submit</button>
+        </div>
+    </form>
+</div>

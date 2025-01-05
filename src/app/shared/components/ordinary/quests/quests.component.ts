@@ -36,4 +36,8 @@ export class QuestsComponent {
     navigateToQuest(): void {
         this.router.navigate(["1"], { relativeTo: this.route });
     }
+
+    createQuest(): void {
+        this.router.navigate(["ordinary/create-quest"]);
+    }
 }
