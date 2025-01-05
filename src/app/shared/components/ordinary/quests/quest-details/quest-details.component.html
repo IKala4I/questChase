@@ -1,0 +1,51 @@
+<div class="quest-details-container">
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="quest-header">
+            <div class="creator-info">
+                <img src="assets/avatar.jpg" alt="Creator Logo" class="creator-logo">
+                <div>
+                    <h3>{{ creator.name }} <mat-icon *ngIf="creator.verified">verified</mat-icon></h3>
+                    <p>{{ creator.followers | number }} followers</p>
+                </div>
+            </div>
+            <div class="tags">
+                <span *ngFor="let tag of tags" class="tag">{{ tag }}</span>
+            </div>
+        </div>
+
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+
+        <!-- Task Sections -->
+        <div class="task-sections">
+            <div *ngFor="let section of sections" class="task-section">
+                <h4>{{ section.type }}</h4>
+                <ul>
+                    <li *ngFor="let task of section.tasks">{{ task }}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aside Section -->
+    <aside class="aside-section">
+        <div class="reward-info">
+            <h3>Quest Rewards</h3>
+            <p>Ending In <strong>{{ endingTime }}</strong></p>
+            <div class="reward-details">
+                <p>Token: <strong>{{ reward.type }}</strong></p>
+                <p>Amount: <strong>{{ reward.amount }}</strong> / Winner</p>
+                <p>Winners: <strong>{{ reward.winners }}</strong></p>
+            </div>
+            <button mat-raised-button color="primary" *ngIf="questStatus === 'claimable'">Claim Reward</button>
+            <button mat-raised-button disabled *ngIf="questStatus === 'pending'">Pending Results</button>
+        </div>
+
+        <div class="participants-info">
+            <h3>Participants Info</h3>
+            <p>Participants: {{ participants.total | number }}</p>
+            <p>Winners: {{ participants.winners }}</p>
+        </div>
+    </aside>
+</div>

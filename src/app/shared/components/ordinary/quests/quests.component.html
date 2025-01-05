@@ -45,7 +45,7 @@
     </div>
 
     <div class="quests-grid">
-        <mat-card *ngFor="let quest of quests" class="quest-card">
+        <mat-card *ngFor="let quest of quests" class="quest-card" (click)="navigateToQuest()">
             <img mat-card-image [src]="quest.image" alt="{{ quest.title }}">
             <mat-card-content class="mt-1">
                 <h3>{{ quest.title }}</h3>

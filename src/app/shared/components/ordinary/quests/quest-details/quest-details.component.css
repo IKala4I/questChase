@@ -1,0 +1,68 @@
+/* quest-details.component.css */
+.quest-details-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    color: #fff;
+}
+
+.main-section {
+    flex: 3;
+}
+
+.quest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creator-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.creator-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+}
+
+.tag {
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.task-sections {
+    margin-top: 20px;
+}
+
+.task-section h4 {
+    margin-bottom: 10px;
+}
+
+.aside-section {
+    flex: 1;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.reward-info, .participants-info {
+    margin-bottom: 20px;
+}
+
+.reward-details p {
+    margin: 5px 0;
+}
+
+button {
+    width: 100%;
+}

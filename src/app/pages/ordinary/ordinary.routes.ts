@@ -39,6 +39,13 @@ export const ordinaryRoutes: Routes = [
                 path: "quests",
                 loadComponent: () =>
                     import("src/app/shared/components/ordinary/quests/quests.component").then(m => m.QuestsComponent)
+            },
+            {
+                path: "quests/:id",
+                loadComponent: () =>
+                    import("src/app/shared/components/ordinary/quests/quest-details/quest-details.component").then(
+                        m => m.QuestDetailsComponent
+                    )
             }
         ]
     }

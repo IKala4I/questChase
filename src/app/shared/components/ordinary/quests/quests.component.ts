@@ -5,6 +5,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector: "app-quests",
@@ -26,4 +27,13 @@ export class QuestsComponent {
         { title: "Health", quests: 9876, image: "assets/image-placeholder.png" },
         { title: "Education", quests: 5678, image: "assets/image-placeholder.png" }
     ];
+
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute
+    ) {}
+
+    navigateToQuest(): void {
+        this.router.navigate(["1"], { relativeTo: this.route });
+    }
 }
