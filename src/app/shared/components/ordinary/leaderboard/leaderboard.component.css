@@ -39,3 +39,8 @@
 .mat-row:nth-child(even) {
     background-color: #1e1e1e;
 }
+
+mat-spinner {
+    width: 50px;
+    height: 50px;
+}

@@ -28,13 +28,7 @@
         "jasmine": true
       },
       "rules": {
-        "indent": ["error", 4],
-        "@typescript-eslint/explicit-function-return-type": [
-          "error",
-          {
-            "allowExpressions": true
-          }
-        ],
+        "@typescript-eslint/explicit-function-return-type": "error",
         "@typescript-eslint/dot-notation": [
           "error",
           {

@@ -1,14 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { CommonModule } from "@angular/common";
+import { delay, forkJoin, Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 import { Testimonial } from "src/app/shared/interfaces/testimonial.interface";
 import { FeaturedQuest } from "src/app/shared/interfaces/featured-quest.interface";
 import { News } from "src/app/shared/interfaces/news.interface";
 import { HomeService } from "src/app/shared/services/ordinary/home.service";
-import { delay, forkJoin } from "rxjs";
 
 @Component({
     selector: "app-home",
@@ -16,11 +17,13 @@ import { delay, forkJoin } from "rxjs";
     templateUrl: "./home.component.html",
     styleUrl: "./home.component.css"
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
     featuredQuests: FeaturedQuest[] = [];
     testimonials: Testimonial[] = [];
     news: News[] = [];
     isLoading: boolean = true;
+
+    private destroy$ = new Subject<void>();
 
     constructor(private homeService: HomeService) {}
 
@@ -36,7 +39,7 @@ export class HomeComponent implements OnInit {
             testimonials: this.homeService.getTestimonials(),
             news: this.homeService.getNews()
         })
-            .pipe(delay(2000))
+            .pipe(delay(2000), takeUntil(this.destroy$))
             .subscribe({
                 next: ({ featuredQuests, testimonials, news }) => {
                     this.featuredQuests = featuredQuests;
@@ -49,5 +52,10 @@ export class HomeComponent implements OnInit {
                     this.isLoading = false;
                 }
             });
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 }

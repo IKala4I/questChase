@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "rank": 1,
+      "avatar": "assets/avatar.jpg",
+      "username": "Alice",
+      "completedQuests": 5
+    },
+    {
+      "id": 2,
+      "rank": 2,
+      "avatar": "assets/avatar.jpg",
+      "username": "Bob",
+      "completedQuests": 4
+    },
+    {
+      "id": 3,
+      "rank": 3,
+      "avatar": "assets/avatar.jpg",
+      "username": "Charlie",
+      "completedQuests": 3
+    }
+  ]
+}

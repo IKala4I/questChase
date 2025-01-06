@@ -6,9 +6,9 @@ import { FeaturedQuest } from "src/app/shared/interfaces/featured-quest.interfac
 import { Testimonial } from "src/app/shared/interfaces/testimonial.interface";
 import { News } from "src/app/shared/interfaces/news.interface";
 
-import * as featuredQuests from "src/assets/mock/featured-quests.json";
-import * as testimonials from "src/assets/mock/testimonials.json";
-import * as news from "src/assets/mock/news.json";
+import * as featuredQuests from "src/assets/mock/home/featured-quests.json";
+import * as testimonials from "src/assets/mock/home/testimonials.json";
+import * as news from "src/assets/mock/home/news.json";
 
 @Injectable({
     providedIn: "root"

@@ -1,44 +1,61 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { Subject, delay, takeUntil } from "rxjs";
 
 import { LeaderboardEntry } from "src/app/shared/interfaces/leaderboard.interface";
+import { LeaderboardService } from "src/app/shared/services/ordinary/leaderboard.service";
 
 @Component({
     selector: "app-leaderboard",
-    imports: [CommonModule, MatTabsModule, MatTableModule, MatIconModule],
+    imports: [CommonModule, MatTabsModule, MatTableModule, MatIconModule, MatProgressSpinner],
     templateUrl: "./leaderboard.component.html",
     styleUrl: "./leaderboard.component.css"
 })
-export class LeaderboardComponent {
+export class LeaderboardComponent implements OnInit, OnDestroy {
     displayedColumns: string[] = ["rank", "user", "completedQuests"];
-    tabs = ["daily", "weekly", "monthly", "allTime"];
-
+    tabs = ["daily", "weekly", "monthly", "all-time"];
     activeTabIndex = 0;
+    activeData: LeaderboardEntry[] = [];
+    isLoading: boolean = true;
 
-    leaderboardData: { [key: string]: LeaderboardEntry[] } = {
-        daily: [
-            { rank: 1, avatar: "assets/avatar.jpg", username: "Alice", completedQuests: 2 },
-            { rank: 2, avatar: "assets/avatar.jpg", username: "Bob", completedQuests: 1 }
-        ],
-        weekly: [
-            { rank: 1, avatar: "assets/avatar.jpg", username: "Alice", completedQuests: 5 },
-            { rank: 2, avatar: "assets/avatar.jpg", username: "Bob", completedQuests: 4 },
-            { rank: 3, avatar: "assets/avatar.jpg", username: "Charlie", completedQuests: 3 }
-        ],
-        monthly: [
-            { rank: 1, avatar: "assets/avatar.jpg", username: "Alice", completedQuests: 20 },
-            { rank: 2, avatar: "assets/avatar.jpg", username: "Bob", completedQuests: 18 }
-        ],
-        allTime: [
-            { rank: 1, avatar: "assets/avatar.jpg", username: "Alice", completedQuests: 100 },
-            { rank: 2, avatar: "assets/avatar.jpg", username: "Bob", completedQuests: 90 }
-        ]
-    };
+    private destroy$ = new Subject<void>();
 
-    get activeData(): LeaderboardEntry[] {
-        return this.leaderboardData[this.tabs[this.activeTabIndex]] || [];
+    constructor(private leaderboardService: LeaderboardService) {}
+
+    ngOnInit(): void {
+        this.fetchLeaderboardData();
+    }
+
+    onTabChange(): void {
+        this.destroy$.next();
+        this.fetchLeaderboardData();
+    }
+
+    fetchLeaderboardData(): void {
+        this.isLoading = true;
+        const activeTab = this.tabs[this.activeTabIndex];
+
+        this.leaderboardService
+            .getLeaderboardData(activeTab)
+            .pipe(delay(2000), takeUntil(this.destroy$))
+            .subscribe({
+                next: data => {
+                    this.activeData = data;
+                    this.isLoading = false;
+                },
+                error: err => {
+                    console.error("Error fetching leaderboard data:", err);
+                    this.isLoading = false;
+                }
+            });
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 }
