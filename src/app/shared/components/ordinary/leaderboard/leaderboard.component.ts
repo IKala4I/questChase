@@ -18,10 +18,6 @@ export class LeaderboardComponent {
 
     activeTabIndex = 0;
 
-    get activeData(): LeaderboardEntry[] {
-        return this.leaderboardData[this.tabs[this.activeTabIndex]] || [];
-    }
-
     leaderboardData: { [key: string]: LeaderboardEntry[] } = {
         daily: [
             { rank: 1, avatar: "assets/avatar.jpg", username: "Alice", completedQuests: 2 },
@@ -41,4 +37,8 @@ export class LeaderboardComponent {
             { rank: 2, avatar: "assets/avatar.jpg", username: "Bob", completedQuests: 90 }
         ]
     };
+
+    get activeData(): LeaderboardEntry[] {
+        return this.leaderboardData[this.tabs[this.activeTabIndex]] || [];
+    }
 }
