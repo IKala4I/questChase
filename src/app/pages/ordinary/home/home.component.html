@@ -11,13 +11,16 @@
     <!-- Featured Quests -->
     <section class="py-5">
         <h2 class="text-center mb-4">Featured Quests</h2>
-        <div class="featured-quests-grid">
-            <mat-card *ngFor="let quest of [1, 2, 3, 4, 5, 6, 7]" class="bg-dark text-light quest-card">
-                <img mat-card-image src="assets/image-placeholder.png" alt="Quest Image">
-                <mat-card-content class="mt-2">
-                    <h3>Quest Title</h3>
-                    <p>$25 | 5 hours</p>
-                    <p>Earned by 500+ people</p>
+        <div *ngIf="isLoading" class="d-flex justify-content-center">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!isLoading" class="featured-quests-grid">
+            <mat-card *ngFor="let quest of featuredQuests" class="bg-dark text-light quest-card">
+                <img mat-card-image [src]="quest.image" alt="Quest Image">
+                <mat-card-content class="mt-1">
+                    <h3>{{ quest.title }}</h3>
+                    <p>{{ quest.price }} | {{ quest.duration }}</p>
+                    <p>Earned by {{ quest.earned }}</p>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -26,11 +29,14 @@
     <!-- Testimonials -->
     <section class="py-5">
         <h2 class="text-center mb-4">Testimonials</h2>
-        <div class="d-flex justify-content-center flex-wrap gap-3">
-            <mat-card *ngFor="let testimonial of [1, 2, 3]" class="bg-dark text-light">
+        <div *ngIf="isLoading" class="d-flex justify-content-center">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!isLoading" class="testimonials-grid">
+            <mat-card *ngFor="let testimonial of testimonials" class="bg-dark text-light">
                 <mat-card-content>
-                    <p>"I learned so much from this quest. It was a great way to spend my weekend!"</p>
-                    <footer>— Emily, 30</footer>
+                    <p>"{{ testimonial.content }}"</p>
+                    <footer>— {{ testimonial.author }}</footer>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -39,11 +45,14 @@
     <!-- Latest News -->
     <section class="py-5">
         <h2 class="text-center mb-4">Latest News and Updates</h2>
-        <div class="d-flex flex-column align-items-center gap-3">
-            <mat-card *ngFor="let news of [1, 2, 3]" class="bg-dark text-light w-75">
+        <div *ngIf="isLoading" class="d-flex justify-content-center">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!isLoading" class="d-flex flex-column align-items-center gap-3">
+            <mat-card *ngFor="let newsItem of news" class="bg-dark text-light w-75">
                 <mat-card-content>
-                    <h3>How to Write a Bestselling Novel</h3>
-                    <p>Author: John Doe</p>
+                    <h3>{{ newsItem.title }}</h3>
+                    <p>Author: {{ newsItem.author }}</p>
                 </mat-card-content>
             </mat-card>
         </div>
