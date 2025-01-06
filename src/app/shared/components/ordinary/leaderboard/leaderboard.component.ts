@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
-import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { Subject, delay, takeUntil } from "rxjs";
 
 import { LeaderboardEntry } from "src/app/shared/interfaces/leaderboard.interface";
@@ -11,7 +10,7 @@ import { LeaderboardService } from "src/app/shared/services/ordinary/leaderboard
 
 @Component({
     selector: "app-leaderboard",
-    imports: [CommonModule, MatTabsModule, MatTableModule, MatIconModule, MatProgressSpinner],
+    imports: [CommonModule, MatTabsModule, MatTableModule, MatIconModule],
     templateUrl: "./leaderboard.component.html",
     styleUrl: "./leaderboard.component.css"
 })
@@ -21,6 +20,13 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     activeTabIndex = 0;
     activeData: LeaderboardEntry[] = [];
     isLoading: boolean = true;
+
+    skeletonRows: LeaderboardEntry[] = Array(10).fill({
+        rank: null,
+        avatar: null,
+        username: null,
+        completedQuests: null
+    });
 
     private destroy$ = new Subject<void>();
 

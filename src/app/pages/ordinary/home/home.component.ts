@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { CommonModule } from "@angular/common";
 import { delay, forkJoin, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -13,15 +12,14 @@ import { HomeService } from "src/app/shared/services/ordinary/home.service";
 
 @Component({
     selector: "app-home",
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule],
+    imports: [CommonModule, MatButtonModule, MatCardModule],
     templateUrl: "./home.component.html",
     styleUrl: "./home.component.css"
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    featuredQuests: FeaturedQuest[] = [];
-    testimonials: Testimonial[] = [];
-    news: News[] = [];
-    isLoading: boolean = true;
+    featuredQuests: FeaturedQuest[] | null = null;
+    testimonials: Testimonial[] | null = null;
+    news: News[] | null = null;
 
     private destroy$ = new Subject<void>();
 
@@ -32,8 +30,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     fetchData(): void {
-        this.isLoading = true;
-
         forkJoin({
             featuredQuests: this.homeService.getFeaturedQuests(),
             testimonials: this.homeService.getTestimonials(),
@@ -45,11 +41,9 @@ export class HomeComponent implements OnInit, OnDestroy {
                     this.featuredQuests = featuredQuests;
                     this.testimonials = testimonials;
                     this.news = news;
-                    this.isLoading = false;
                 },
                 error: error => {
                     console.error("Error fetching data:", error);
-                    this.isLoading = false;
                 }
             });
     }
