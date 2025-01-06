@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Art",
+      "quests": 1234,
+      "image": "assets/image-placeholder.png"
+    },
+    {
+      "id": 2,
+      "title": "Science",
+      "quests": 4567,
+      "image": "assets/image-placeholder.png"
+    },
+    {
+      "id": 3,
+      "title": "Tech",
+      "quests": 2345,
+      "image": "assets/image-placeholder.png"
+    },
+    {
+      "id": 4,
+      "title": "Language",
+      "quests": 3456,
+      "image": "assets/image-placeholder.png"
+    },
+    {
+      "id": 5,
+      "title": "Health",
+      "quests": 9876,
+      "image": "assets/image-placeholder.png"
+    },
+    {
+      "id": 6,
+      "title": "Education",
+      "quests": 5678,
+      "image": "assets/image-placeholder.png"
+    }
+  ]
+}

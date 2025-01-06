@@ -4,8 +4,9 @@
     gap: 1.5rem;
 }
 
-.quest-card img {
-    object-fit: contain;
+.quest-card mat-card-image {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .skeleton-card {
