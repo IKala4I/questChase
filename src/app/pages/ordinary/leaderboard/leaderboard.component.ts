@@ -12,7 +12,7 @@ import { LeaderboardService } from "src/app/shared/services/ordinary/leaderboard
     selector: "app-leaderboard",
     imports: [CommonModule, MatTabsModule, MatTableModule, MatIconModule],
     templateUrl: "./leaderboard.component.html",
-    styleUrl: "./leaderboard.component.css"
+    styleUrls: ["../../../shared/styles.css", "./leaderboard.component.css"]
 })
 export class LeaderboardComponent implements OnInit, OnDestroy {
     displayedColumns: string[] = ["rank", "user", "completedQuests"];

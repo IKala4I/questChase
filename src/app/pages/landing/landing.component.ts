@@ -34,7 +34,6 @@ export class LandingComponent {
     }
 
     private launchApp(launchAppForm: ILaunchAppForm): void {
-        console.log(launchAppForm);
         if (launchAppForm.mode === AppModes.Ordinary) {
             this.router.navigate(["/ordinary"]);
         } else {

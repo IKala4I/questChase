@@ -11,16 +11,16 @@
     <!-- Featured Quests -->
     <section class="py-5">
         <h2 class="text-center mb-4">Featured Quests</h2>
-        <div *ngIf="!featuredQuests" class="featured-quests-grid">
+        <div *ngIf="!featuredQuests" class="grid-250-width">
             <div class="skeleton-card bg-dark text-light p-3" *ngFor="let _ of [1, 2, 3, 4, 5]">
                 <div class="skeleton-image mb-2"></div>
                 <div class="skeleton-title mb-1"></div>
                 <div class="skeleton-text w-50"></div>
             </div>
         </div>
-        <div *ngIf="featuredQuests" class="featured-quests-grid">
+        <div *ngIf="featuredQuests" class="grid-250-width">
             <mat-card *ngFor="let quest of featuredQuests" class="bg-dark text-light quest-card">
-                <img mat-card-image [src]="quest.image" alt="Quest Image">
+                <img mat-card-image class="card-image" [src]="quest.image" alt="Quest Image">
                 <mat-card-content class="mt-1">
                     <h3>{{ quest.title }}</h3>
                     <p>{{ quest.price }} | {{ quest.duration }}</p>
@@ -33,13 +33,13 @@
     <!-- Testimonials -->
     <section class="py-5">
         <h2 class="text-center mb-4">Testimonials</h2>
-        <div *ngIf="!testimonials" class="testimonials-grid">
+        <div *ngIf="!testimonials" class="grid-250-width">
             <div class="skeleton-card bg-dark text-light p-3" *ngFor="let _ of [1, 2, 3]">
                 <div class="skeleton-text w-100 mb-2"></div>
                 <div class="skeleton-text w-50"></div>
             </div>
         </div>
-        <div *ngIf="testimonials" class="testimonials-grid">
+        <div *ngIf="testimonials" class="grid-250-width">
             <mat-card *ngFor="let testimonial of testimonials" class="bg-dark text-light">
                 <mat-card-content>
                     <p>"{{ testimonial.content }}"</p>

@@ -1,0 +1,105 @@
+<div class="text-light">
+    <ng-container *ngIf="!profileData; else profileDataContent">
+        <section class="profile-header d-flex align-items-center justify-content-between gap-4">
+            <div class="d-flex align-items-center gap-4">
+                <div class="skeleton-avatar"></div>
+                <div class="skeleton-user-info">
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-text w-50"></div>
+                </div>
+            </div>
+            <div class="ml-auto d-flex gap-2">
+                <button mat-raised-button color="primary" disabled>Edit Profile</button>
+                <button mat-stroked-button color="accent" disabled>Settings</button>
+            </div>
+        </section>
+        <div class="grid-250-width mt-5">
+            <div class="skeleton-card bg-dark text-light p-3" *ngFor="let _ of [1, 2, 3, 4, 5, 6]">
+                <div class="skeleton-image mb-2"></div>
+                <div class="skeleton-title mb-1"></div>
+                <div class="skeleton-text w-50"></div>
+            </div>
+        </div>
+        <section class="summary mt-5">
+            <h3>Summary</h3>
+            <table mat-table class="mat-elevation-z8" [dataSource]="skeletonRows">
+                <ng-container matColumnDef="title">
+                    <td mat-cell *matCellDef>
+                        <div class="w-25 skeleton-text"></div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="info">
+                    <td class="text-end" mat-cell *matCellDef>
+                        <div class="w-25 skeleton-text d-inline-block"></div>
+                    </td>
+                </ng-container>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </section>
+        <section class="achievements mt-5">
+            <h3>Achievements</h3>
+            <div class="grid-300-width">
+                <div class="skeleton-card bg-dark text-light p-3" *ngFor="let _ of [1, 2, 3]">
+                    <div class="skeleton-icon mb-2"></div>
+                    <div class="skeleton-title mb-1"></div>
+                    <div class="skeleton-text w-75"></div>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+    <ng-template #profileDataContent>
+        <section class="profile-header d-flex align-items-center justify-content-between gap-4">
+            <div class="d-flex align-items-center gap-4">
+                <img [src]="profileData.user.avatar" alt="Avatar" class="avatar rounded-circle" />
+                <div>
+                    <h2>{{ profileData.user.name }}</h2>
+                    <p class="text-secondary">{{ profileData.user.username }}</p>
+                </div>
+            </div>
+            <div class="ml-auto d-flex gap-2">
+                <button mat-raised-button color="primary" (click)="openEditProfileModal()">Edit Profile</button>
+                <button mat-stroked-button color="accent" (click)="openProfileSettingsModal()">Settings</button>
+            </div>
+        </section>
+        <section class="completed-quests mt-5">
+            <h3>Completed Quests</h3>
+            <div class="grid-250-width">
+                <mat-card *ngFor="let quest of profileData.completedQuests" class="quest-card bg-dark text-light">
+                    <img mat-card-image class="card-image" [src]="quest.image" alt="{{ quest.title }}">
+                    <mat-card-content class="mt-1">
+                        <h4>{{ quest.title }}</h4>
+                        <p>{{ quest.description }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </section>
+        <section class="summary mt-5">
+            <h3>Summary</h3>
+            <table mat-table class="mat-elevation-z8" [dataSource]="activeData">
+                <ng-container matColumnDef="title">
+                    <td mat-cell *matCellDef="let element">
+                        {{element.title}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="info">
+                    <td class="text-end" mat-cell *matCellDef="let element">
+                        {{element.info}}
+                    </td>
+                </ng-container>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </section>
+        <section class="achievements mt-5">
+            <h3>Achievements</h3>
+            <div class="grid-300-width">
+                <mat-card *ngFor="let achievement of profileData.achievements" class="bg-dark text-light p-2">
+                    <mat-icon>{{ achievement.icon }}</mat-icon>
+                    <mat-card-content>
+                        <h4>{{ achievement.title }}</h4>
+                        <p>{{ achievement.description }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </section>
+    </ng-template>
+</div>

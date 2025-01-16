@@ -16,7 +16,7 @@ import { Quest } from "src/app/shared/interfaces/quest.interface";
     selector: "app-quests",
     imports: [CommonModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatCardModule, MatButtonModule],
     templateUrl: "./quests.component.html",
-    styleUrls: ["./quests.component.css"]
+    styleUrls: ["../../../shared/styles.css", "./quests.component.css"]
 })
 export class QuestsComponent implements OnInit, OnDestroy {
     difficulties = ["Beginner", "Intermediate", "Advanced", "Expert"];

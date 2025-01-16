@@ -1,4 +1,4 @@
-<div class="quests-page-container">
+<div class="text-light">
     <div class="d-flex gap-4 justify-content-between align-items-center">
         <h2>Explore</h2>
         <button class="btn btn-primary" (click)="createQuest()">Create Quest</button>
@@ -9,7 +9,7 @@
         <input matInput type="text" placeholder="Type your query..." />
     </mat-form-field>
 
-    <div class="filters">
+    <div class="filters flex-wrap">
         <mat-form-field appearance="outline">
             <mat-label>Difficulty</mat-label>
             <mat-select>
@@ -48,7 +48,7 @@
     </div>
 
     <!-- Skeleton Placeholders -->
-    <div *ngIf="!quests" class="quests-grid">
+    <div *ngIf="!quests" class="grid-250-width">
         <div class="skeleton-card bg-dark text-light p-3" *ngFor="let _ of [1, 2, 3, 4, 5, 6]">
             <div class="skeleton-image mb-2"></div>
             <div class="skeleton-title mb-1"></div>
@@ -57,14 +57,14 @@
     </div>
 
     <!-- Quest Cards -->
-    <div class="quests-grid">
+    <div class="grid-250-width">
         <ng-container *ngIf="quests">
             <mat-card
                 *ngFor="let quest of quests"
                 class="quest-card bg-dark text-light"
                 (click)="navigateToQuest()"
             >
-                <img mat-card-image [src]="quest.image" alt="{{ quest.title }}" />
+                <img mat-card-image class="card-image" [src]="quest.image" alt="{{ quest.title }}" />
                 <mat-card-content class="mt-1">
                     <h3>{{ quest.title }}</h3>
                     <p>{{ quest.quests }} quests</p>

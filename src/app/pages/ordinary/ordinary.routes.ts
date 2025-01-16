@@ -19,26 +19,24 @@ export const ordinaryRoutes: Routes = [
             {
                 path: "profile",
                 loadComponent: () =>
-                    import("src/app/shared/components/ordinary/profile/profile.component").then(m => m.ProfileComponent)
+                    import("src/app/pages/ordinary/profile/profile.component").then(m => m.ProfileComponent)
             },
             {
                 path: "leaderboard",
                 loadComponent: () =>
-                    import("src/app/shared/components/ordinary/leaderboard/leaderboard.component").then(
-                        m => m.LeaderboardComponent
-                    )
+                    import("src/app/pages/ordinary/leaderboard/leaderboard.component").then(m => m.LeaderboardComponent)
             },
             {
                 path: "help-support",
                 loadComponent: () =>
-                    import("src/app/shared/components/ordinary/help-support/help-support.component").then(
+                    import("src/app/pages/ordinary/help-support/help-support.component").then(
                         m => m.HelpSupportComponent
                     )
             },
             {
                 path: "quests",
                 loadComponent: () =>
-                    import("src/app/shared/components/ordinary/quests/quests.component").then(m => m.QuestsComponent)
+                    import("src/app/pages/ordinary/quests/quests.component").then(m => m.QuestsComponent)
             },
             {
                 path: "quests/create",

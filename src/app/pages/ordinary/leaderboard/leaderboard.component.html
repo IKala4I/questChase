@@ -1,4 +1,4 @@
-<div class="leaderboard-container">
+<div class="text-light">
     <h2>Leaderboard</h2>
 
     <!-- Tabs -->
@@ -19,7 +19,7 @@
                     {{ element.rank }}
                 </ng-container>
                 <ng-template #skeletonRank>
-                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text w-25"></div>
                 </ng-template>
             </td>
         </ng-container>
@@ -36,8 +36,8 @@
                 </ng-container>
                 <ng-template #skeletonUser>
                     <div class="user-cell">
-                        <div class="skeleton skeleton-avatar"></div>
-                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-icon"></div>
+                        <div class="skeleton skeleton-text w-50"></div>
                     </div>
                 </ng-template>
             </td>
@@ -51,7 +51,7 @@
                     {{ element.completedQuests }}
                 </ng-container>
                 <ng-template #skeletonCompletedQuests>
-                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text w-25"></div>
                 </ng-template>
             </td>
         </ng-container>

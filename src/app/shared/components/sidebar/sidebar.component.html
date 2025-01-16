@@ -1,16 +1,14 @@
 <div class="sidebar-container">
-    <!-- Toggle Button for Mobile -->
     <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
         <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
     </button>
 
-    <!-- Sidebar -->
     <nav class="sidebar" [class.open]="isMenuOpen">
         <ul>
             <li *ngFor="let item of menuItems" class="sidebar-item">
-                <a [routerLink]="item.link" (click)="toggleMenu()">
-                    <mat-icon class="me-3">{{ item.icon }}</mat-icon>
-                    <span>{{ item.label }}</span>
+                <a [routerLink]="item['link']" routerLinkActive="active" (click)="toggleMenu()">
+                    <mat-icon class="me-3">{{ item['icon'] }}</mat-icon>
+                    <span>{{ item['label'] }}</span>
                 </a>
             </li>
         </ul>

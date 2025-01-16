@@ -14,7 +14,7 @@ import { HomeService } from "src/app/shared/services/ordinary/home.service";
     selector: "app-home",
     imports: [CommonModule, MatButtonModule, MatCardModule],
     templateUrl: "./home.component.html",
-    styleUrl: "./home.component.css"
+    styleUrls: ["../../../shared/styles.css"]
 })
 export class HomeComponent implements OnInit, OnDestroy {
     featuredQuests: FeaturedQuest[] | null = null;
