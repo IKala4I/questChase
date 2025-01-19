@@ -2,7 +2,14 @@ mat-checkbox {
     margin-bottom: 20px;
 }
 
-button {
+.action-button {
     display: block;
     margin-top: 20px;
+}
+
+.close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: inherit;
 }

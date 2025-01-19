@@ -99,7 +99,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
     }
 
     openProfileSettingsModal(): void {
-        this.dialog.open(ProfileSettingsModalComponent);
+        this.dialog.open(ProfileSettingsModalComponent, {
+            autoFocus: false
+        });
     }
 
     openAllNotifications(): void {

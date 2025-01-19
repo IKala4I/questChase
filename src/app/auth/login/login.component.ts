@@ -11,6 +11,7 @@ import { LoginRegisterFormComponent } from "src/app/auth/login-register-form/log
 })
 export class LoginComponent {
     constructor(private router: Router) {}
+
     onSubmit(_: { username: string; password: string }): void {
         this.router.navigate(["/ordinary"]);
     }

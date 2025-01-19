@@ -1,10 +1,14 @@
-<h2 mat-dialog-title>Settings</h2>
+<h2 mat-dialog-title>
+    Settings
+    <button mat-icon-button mat-dialog-close aria-label="Close" class="close-button">
+        <mat-icon>close</mat-icon>
+    </button></h2>
 <mat-dialog-content>
     <form [formGroup]="notificationsForm">
         <mat-checkbox formControlName="receiveNotifications">Receive Notifications</mat-checkbox>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
-    <button mat-raised-button color="primary" (click)="openChangePasswordModal()">Change Password</button>
+    <button class="action-button" mat-raised-button color="primary" (click)="logout()">Logout</button>
+    <button class="action-button" mat-raised-button color="primary" (click)="openChangePasswordModal()">Change Password</button>
 </mat-dialog-actions>
