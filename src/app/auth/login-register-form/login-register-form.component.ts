@@ -28,13 +28,13 @@ export class LoginRegisterFormComponent {
         });
     }
 
+    get isRegisterMode(): boolean {
+        return this.mode === "register";
+    }
+
     onSubmit(): void {
         if (this.form.valid) {
             this.submitForm.emit(this.form.value);
         }
-    }
-
-    get isRegisterMode(): boolean {
-        return this.mode === "register";
     }
 }

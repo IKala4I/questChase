@@ -4,6 +4,14 @@ import { LayoutComponent } from "src/app/shared/components/layout/layout.compone
 
 export const ordinaryRoutes: Routes = [
     {
+        path: "login",
+        loadComponent: () => import("src/app/auth/login/login.component").then(m => m.LoginComponent)
+    },
+    {
+        path: "register",
+        loadComponent: () => import("src/app/auth/register/register.component").then(m => m.RegisterComponent)
+    },
+    {
         path: "",
         component: LayoutComponent,
         children: [

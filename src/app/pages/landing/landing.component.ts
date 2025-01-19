@@ -35,7 +35,7 @@ export class LandingComponent {
 
     private launchApp(launchAppForm: ILaunchAppForm): void {
         if (launchAppForm.mode === AppModes.Ordinary) {
-            this.router.navigate(["/ordinary"]);
+            this.router.navigate(["/ordinary/login"]);
         } else {
             this.router.navigate(["/crypto"]);
         }

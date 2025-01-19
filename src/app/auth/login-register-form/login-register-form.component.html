@@ -24,7 +24,7 @@
             </button>
         </div>
         <div class="mt-3 text-center">
-            <a class="text-primary" [routerLink]="[mode === 'login' ? '/register' : '/login']">
+            <a class="text-primary" [routerLink]="[mode === 'login' ? 'ordinary/register' : 'ordinary/login']" [relativeTo]="null">
                 {{ mode === 'login' ? 'Don\'t have an account? Register' : 'Already have an account? Login' }}
             </a>
         </div>

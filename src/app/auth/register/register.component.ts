@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 import { LoginRegisterFormComponent } from "src/app/auth/login-register-form/login-register-form.component";
 
@@ -9,7 +10,8 @@ import { LoginRegisterFormComponent } from "src/app/auth/login-register-form/log
     styleUrl: "./register.component.css"
 })
 export class RegisterComponent {
-    onSubmit(event: { username: string; password: string; email?: string }): void {
-        console.log("Register data:", event);
+    constructor(private router: Router) {}
+    onSubmit(_: { username: string; password: string; email?: string }): void {
+        this.router.navigate(["/ordinary"]);
     }
 }

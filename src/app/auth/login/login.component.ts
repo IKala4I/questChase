@@ -1,16 +1,17 @@
 import { Component } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import { LoginRegisterFormComponent } from "src/app/auth/login-register-form/login-register-form.component";
 
 @Component({
     selector: "app-login",
-    imports: [ReactiveFormsModule, LoginRegisterFormComponent],
+    imports: [LoginRegisterFormComponent],
     templateUrl: "./login.component.html",
     styleUrl: "./login.component.css"
 })
 export class LoginComponent {
-    onSubmit(event: { username: string; password: string }): void {
-        console.log("Login data:", event);
+    constructor(private router: Router) {}
+    onSubmit(_: { username: string; password: string }): void {
+        this.router.navigate(["/ordinary"]);
     }
 }
