@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MatButton } from "@angular/material/button";
+import { MatButton, MatIconButton } from "@angular/material/button";
 import { MatCard, MatCardContent, MatCardImage } from "@angular/material/card";
 import { MatDialog } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
@@ -12,10 +12,24 @@ import { ProfileService } from "src/app/shared/services/ordinary/profile.service
 import { ProfileData } from "src/app/shared/interfaces/profile.interface";
 import { EditProfileModalComponent } from "src/app/shared/components/ordinary/profile/edit-profile-modal/edit-profile-modal.component";
 import { ProfileSettingsModalComponent } from "src/app/shared/components/ordinary/profile/profile-settings-modal/profile-settings-modal.component";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatBadgeModule } from "@angular/material/badge";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-profile",
-    imports: [CommonModule, MatButton, MatCard, MatCardImage, MatCardContent, MatIconModule, MatTableModule],
+    imports: [
+        CommonModule,
+        MatBadgeModule,
+        MatMenuModule,
+        MatButton,
+        MatCard,
+        MatCardImage,
+        MatCardContent,
+        MatIconModule,
+        MatTableModule,
+        MatIconButton
+    ],
     templateUrl: "./profile.component.html",
     styleUrls: ["../../../shared/styles.css", "./profile.component.css"]
 })
@@ -23,12 +37,21 @@ export class ProfileComponent implements OnInit, OnDestroy {
     profileData: ProfileData;
     displayedColumns: string[] = ["title", "info"];
     activeData: any = [];
-    skeletonRows = Array(10);
+    skeletonRows = Array(3);
+
+    notifications = [
+        { id: 1, text: "New quest available: Blockchain Basics!" },
+        { id: 2, text: "Your quest 'React Fundamentals' has been approved." },
+        { id: 3, text: "Weekly leaderboard updated!" }
+    ];
+    notificationCount = this.notifications.length;
+
     private destroy$ = new Subject<void>();
 
     constructor(
         private dialog: MatDialog,
-        private profileService: ProfileService
+        private profileService: ProfileService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -77,6 +100,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     openProfileSettingsModal(): void {
         this.dialog.open(ProfileSettingsModalComponent);
+    }
+
+    openAllNotifications(): void {
+        this.router.navigate(["ordinary/notifications"]);
     }
 
     ngOnDestroy(): void {

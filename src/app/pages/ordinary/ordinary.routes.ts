@@ -41,15 +41,22 @@ export const ordinaryRoutes: Routes = [
             {
                 path: "quests/create",
                 loadComponent: () =>
-                    import("src/app/shared/components/ordinary/quests/create-quest/create-quest.component").then(
+                    import("src/app/pages/ordinary/quests/create-quest/create-quest.component").then(
                         m => m.CreateQuestComponent
                     )
             },
             {
                 path: "quests/:id",
                 loadComponent: () =>
-                    import("src/app/shared/components/ordinary/quests/quest-details/quest-details.component").then(
+                    import("src/app/pages/ordinary/quests/quest-details/quest-details.component").then(
                         m => m.QuestDetailsComponent
+                    )
+            },
+            {
+                path: "notifications",
+                loadComponent: () =>
+                    import("src/app/pages/ordinary/notifications/notifications.component").then(
+                        m => m.NotificationsComponent
                     )
             }
         ]

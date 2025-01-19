@@ -1,12 +1,12 @@
 <div class="quest-details-container">
     <!-- Main Section -->
     <section class="main-section">
-        <div class="quest-header">
+        <div class="quest-header mb-4">
             <div class="creator-info">
-                <img src="assets/avatar.jpg" alt="Creator Logo" class="creator-logo">
-                <div>
-                    <h3>{{ creator.name }} <mat-icon *ngIf="creator.verified">verified</mat-icon></h3>
-                    <p>{{ creator.followers | number }} followers</p>
+                <img src="../../../../../assets/avatar.jpg" alt="Creator Logo" class="creator-logo">
+                <div class="d-flex flex-column gap-1">
+                    <h3 class="m-0">{{ creator.name }} <mat-icon *ngIf="creator.verified">verified</mat-icon></h3>
+                    <p class="m-0">{{ creator.followers | number }} followers</p>
                 </div>
             </div>
             <div class="tags">
@@ -33,9 +33,9 @@
         <div class="reward-info">
             <h3>Quest Rewards</h3>
             <p>Ending In <strong>{{ endingTime }}</strong></p>
-            <div class="reward-details">
+            <div class="reward-details mb-2">
                 <p>Token: <strong>{{ reward.type }}</strong></p>
-                <p>Amount: <strong>{{ reward.amount }}</strong> / Winner</p>
+                <p>Amount: <strong>{{ reward.amount }}</strong></p>
                 <p>Winners: <strong>{{ reward.winners }}</strong></p>
             </div>
             <button mat-raised-button color="primary" *ngIf="questStatus === 'claimable'">Claim Reward</button>
@@ -45,7 +45,6 @@
         <div class="participants-info">
             <h3>Participants Info</h3>
             <p>Participants: {{ participants.total | number }}</p>
-            <p>Winners: {{ participants.winners }}</p>
         </div>
     </aside>
 </div>

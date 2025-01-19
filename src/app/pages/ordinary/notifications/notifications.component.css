@@ -1,0 +1,56 @@
+.notifications-container {
+    padding: 20px;
+    color: #fff;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.notification-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #121212;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.notification-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.notification-content h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.empty-state {
+    text-align: center;
+    color: #888;
+    margin-top: 50px;
+    font-size: 18px;
+}

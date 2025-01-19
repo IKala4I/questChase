@@ -5,7 +5,7 @@ html, body {
 body {
     margin: 0 auto !important;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    max-width: 1440px;
+    max-width: 1920px;
 }
 
 *, *:before, *:after {

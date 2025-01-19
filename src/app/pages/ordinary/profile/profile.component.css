@@ -35,3 +35,36 @@ mat-card mat-icon {
     gap: 8px;
     width: 200px;
 }
+
+.mat-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.menu-item {
+    padding: 5px 10px;
+    border-bottom: 1px solid #444;
+    color: #fff;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.mat-menu-panel {
+    background-color: #121212;
+    color: white;
+    border-radius: 8px;
+}
+
+.mat-badge-content {
+    background-color: #ff4081;
+    color: white;
+}
